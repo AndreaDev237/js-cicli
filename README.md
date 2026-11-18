@@ -84,7 +84,8 @@ Da dove parti, fino a quando giri, di quanto ti sposti? Se la serie parte da 0 o
   - 3 → in console `Piano 0`, `Piano 1`, `Piano 2`, `Piano 3`, poi l'alert `Sei arrivato al piano 3`;
   - 0 → solo `Piano 0`, poi `Sei arrivato al piano 0`;
   - `terzo` → `Piano non valido`, console vuota;
-  - -2 → `Piano non valido`, console vuota.
+  - -2 → `Piano non valido`, console vuota;
+  - Annulla → `Piano non valido`, console vuota.
 
 <details>
 <summary>Suggerimento</summary>
@@ -100,7 +101,8 @@ Il punto di arrivo del ciclo non lo scrivi tu: lo decide l'utente. Il ciclo part
 - **Obiettivo**: alla biglietteria del bus c'è un listino con il prezzo da 1 a 10 biglietti. Chiedi quanto costa un biglietto (in euro, senza centesimi) e stampa in console una riga per ogni quantità: `Quantità 1: 2 €`, `Quantità 2: 4 €`… fino a `Quantità 10: 20 €`.
 - **Come verifichi**:
   - 2 → da `Quantità 1: 2 €` a `Quantità 10: 20 €`, 10 righe;
-  - 3 → la riga 4 è `Quantità 4: 12 €` e l'ultima `Quantità 10: 30 €`.
+  - 3 → la riga 4 è `Quantità 4: 12 €` e l'ultima `Quantità 10: 30 €`;
+  - `due` → 10 righe con `NaN` al posto del prezzo, da `Quantità 1: NaN €` in giù. Qui il prezzo non si controlla.
 
 <details>
 <summary>Suggerimento</summary>
@@ -117,7 +119,9 @@ Il punto di arrivo del ciclo non lo scrivi tu: lo decide l'utente. Il ciclo part
 - **Come verifichi**:
   - `Forza` e 3 → in console `1 · Forza`, `2 · Forza`, `3 · Forza`; nell'alert `Forza Forza Forza` (se resta uno spazio in fondo, va bene);
   - `Olé` e 5 → 5 righe in console e 5 parole nell'alert;
-  - `Forza` e 0 → console vuota e alert vuoto.
+  - `Forza` e 0 → console vuota e alert vuoto;
+  - `Forza` e `tre` → console vuota e alert vuoto: sai dire perché il ciclo non parte?
+  - Annulla sulla parola → al posto della parola compare `null`, cioè quello che restituisce `prompt`. Per ora va bene così.
 
 <details>
 <summary>Suggerimento</summary>
@@ -130,13 +134,14 @@ Il coro su una riga si costruisce come la somma di martedì, solo che al posto d
 
 *`prompt` dentro il `for`, accumulatore, `.toFixed()`.*
 
-- **Obiettivo**: chiedi quanti voti hai preso, poi chiedi i voti uno alla volta. Ogni domanda dice quale voto stai scrivendo: `Voto 1 di 3`, `Voto 2 di 3`… Alla fine mostra con `alert` la media con un decimale: `Media: 7.3`. Se il numero di voti non è un numero o è minore di 1, mostra `Nessun voto da calcolare` senza fare altre domande.
+- **Obiettivo**: chiedi quanti voti hai preso, poi chiedi i voti uno alla volta. Ogni domanda dice quale voto stai scrivendo: `Voto 1 di 3`, `Voto 2 di 3`… Alla fine mostra con `alert` la media con un decimale: `Media: 7.3`. Se il numero di voti non è un numero o è minore di 1, mostra `Nessun voto da calcolare` senza fare altre domande. I singoli voti non li controlli: nelle prove scrivili sempre come numeri.
 - **Come verifichi**:
   - 3 voti: 6, 7, 9 → `Media: 7.3`;
   - 2 voti: 6, 8 → `Media: 7.0`;
   - 1 voto: 10 → `Media: 10.0`;
   - 0 → `Nessun voto da calcolare`, nessun'altra domanda;
-  - `tre` → `Nessun voto da calcolare`.
+  - `tre` → `Nessun voto da calcolare`;
+  - Annulla alla prima domanda → `Nessun voto da calcolare`.
 
 <details>
 <summary>Suggerimento</summary>
@@ -153,6 +158,7 @@ Dentro il ciclo chiedi un voto e lo aggiungi alla somma. La media si calcola **d
 - **Come verifichi**:
   - `111`, `999`, `482` → due righe `Combinazione sbagliata, riprova`, poi l'alert;
   - `482` al primo colpo → console vuota, subito l'alert;
+  - campo vuoto, oppure Annulla → `Combinazione sbagliata, riprova`, e la domanda torna;
   - per uscire bisogna indovinare: se vuoi smettere prima, chiudi la scheda.
 
 <details>
@@ -166,11 +172,13 @@ Quante volte gira il ciclo? Non lo sai prima: è un lavoro per `while`. La doman
 
 *`while` con due accumulatori.*
 
-- **Obiettivo**: alla cassa si battono i prezzi uno alla volta. Chiedi il prezzo di un prodotto (in euro, senza centesimi), poi un altro, finché il cassiere non scrive `0`. Se il prezzo non è un numero, stampa in console `Prezzo non valido` e non contarlo. Alla fine mostra con `alert` quanti prodotti e il totale: `Prodotti: 3 · Totale: 23 €`. Lo `0` finale non è un prodotto.
+- **Obiettivo**: alla cassa si battono i prezzi uno alla volta. Chiedi il prezzo di un prodotto (in euro, senza centesimi), poi un altro, finché il cassiere non scrive `0`. Se il prezzo non è un numero o è negativo, stampa in console `Prezzo non valido` e non contarlo. Alla fine mostra con `alert` quanti prodotti e il totale: `Prodotti: 3 · Totale: 23 €`. Lo `0` finale non è un prodotto.
 - **Come verifichi**:
   - 5, 10, 8, 0 → `Prodotti: 3 · Totale: 23 €`;
   - 0 subito → `Prodotti: 0 · Totale: 0 €`;
-  - 5, `dieci`, 10, 0 → in console `Prezzo non valido`, poi `Prodotti: 2 · Totale: 15 €`.
+  - 5, `dieci`, 10, 0 → in console `Prezzo non valido`, poi `Prodotti: 2 · Totale: 15 €`;
+  - 5, -4, 0 → in console `Prezzo non valido`, poi `Prodotti: 1 · Totale: 5 €`;
+  - Annulla, poi 7, poi 0 → in console `Prezzo non valido`, poi `Prodotti: 1 · Totale: 7 €`.
 
 <details>
 <summary>Suggerimento</summary>
@@ -188,7 +196,8 @@ Ti servono due accumulatori: uno per il totale e uno per contare i prodotti. Den
   - `segreta26` al primo tentativo → `Benvenuto`, console vuota;
   - `ciao`, `segreta26` → `Tentativi rimasti: 2`, poi `Benvenuto`;
   - `ciao`, `prova`, `segreta26` → `Tentativi rimasti: 2` e `1`, poi `Benvenuto`;
-  - `ciao`, `prova`, `boh` → `Tentativi rimasti: 2`, `1` e `0`, poi `Bloccato`. Nessuna quarta domanda.
+  - `ciao`, `prova`, `boh` → `Tentativi rimasti: 2`, `1` e `0`, poi `Bloccato`. Nessuna quarta domanda;
+  - Annulla tre volte → anche Annulla è un tentativo sbagliato: `Tentativi rimasti: 2`, `1` e `0`, poi `Bloccato`.
 
 <details>
 <summary>Suggerimento</summary>
@@ -206,7 +215,7 @@ Solo se hai finito le otto tracce. Stesse regole: STEPS, quattro fasi, doppio cl
 ### Bonus 1 · L'ascensore con while
 
 - **Obiettivo**: riscrivi la traccia 02 con un `while` al posto del `for`. Le uscite devono essere identiche.
-- **Come verifichi**: gli stessi quattro casi della traccia 02, con le stesse righe in console e gli stessi alert.
+- **Come verifichi**: gli stessi casi della traccia 02, con le stesse righe in console e gli stessi alert.
 
 <details>
 <summary>Suggerimento</summary>
@@ -217,8 +226,8 @@ I tre pezzi del `for` ci sono ancora tutti, solo sparsi: uno prima del ciclo, un
 
 ### Bonus 2 · Troppo alto, troppo basso
 
-- **Obiettivo**: il computer pensa a un numero intero da 1 a 100. L'utente prova a indovinarlo: dopo ogni tentativo sbagliato stampa in console `Troppo alto` o `Troppo basso`. Quando indovina, mostra con `alert` in quanti tentativi: `Indovinato in 5 tentativi!`.
-- **Come verifichi**: per provarlo stampa in console il numero segreto all'inizio, così sai cosa rispondere. Con il numero 40: 50 → `Troppo alto`, 30 → `Troppo basso`, 40 → `Indovinato in 3 tentativi!`. Quando funziona, togli la riga che stampa il numero segreto.
+- **Obiettivo**: il computer pensa a un numero intero da 1 a 100. L'utente prova a indovinarlo: dopo ogni tentativo sbagliato stampa in console `Troppo alto` o `Troppo basso`. Se l'utente non scrive un numero (o preme Annulla), stampa `Scrivi un numero da 1 a 100`: conta lo stesso come tentativo. Quando indovina, mostra con `alert` in quanti tentativi: `Indovinato in 5 tentativi!`.
+- **Come verifichi**: per provarlo stampa in console il numero segreto all'inizio, così sai cosa rispondere. Con il numero 40: 50 → `Troppo alto`, 30 → `Troppo basso`, 40 → `Indovinato in 3 tentativi!`. Con il numero 40: `boh`, 40 → `Scrivi un numero da 1 a 100`, poi `Indovinato in 2 tentativi!`. Quando funziona, togli la riga che stampa il numero segreto.
 
 <details>
 <summary>Suggerimento</summary>
