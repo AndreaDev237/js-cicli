@@ -29,7 +29,8 @@ Le tracce da 1 a 5 si fanno con il `for`. Dalla 6 alla 8 non sai prima quante vo
 │   ├── …
 │   └── bonus-2-alto-basso.js
 ├── README.md                                ← questo file
-└── AGENTS.md                                ← le istruzioni per il tutor AI
+├── AGENTS.md                                ← le istruzioni per il tutor AI
+└── TUTOR.md                                 ← le note del docente sull'esercizio, per il tutor AI
 ```
 
 Perché una pagina per traccia: con un doppio clic parte solo il programma che ti interessa, e F5 lo rifà da capo. Non devi commentare e decommentare niente.
